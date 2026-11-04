@@ -1,725 +1,583 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#F8F9F5">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F8F9F5">
+<title>NOVA — Everyday Essentials</title>
 
-    <title>NOVA — Everyday Essentials</title>
+<!-- Tailwind -->
+<script>
+tailwind.config = {
+    darkMode: "class"
+};
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
-
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
 </head>
 
-<body class="bg-[#F8F9F5] font-['Manrope',sans-serif] text-[#171916] antialiased">
+<body class="bg-[#F8F9F5] dark:bg-[#171916] font-['Manrope',sans-serif] text-[#171916] dark:text-[#F8F9F5] antialiased transition-colors duration-300 scroll-smooth [&_i]:inline-flex [&_i]:items-center [&_i]:justify-center [&_i]:leading-none">
 
-    <!-- Header -->
-    <header class="border-b border-[#DDE0D7]">
+<!-- Header -->
+<header class="sticky top-0 z-50 border-b border-[#DDE0D7] dark:border-[#34382F] bg-[#F8F9F5]/95 dark:bg-[#171916]/95 backdrop-blur-md">
+    <div class="mx-auto flex h-[86px] max-w-[1622px] items-center justify-between px-6 sm:px-10 lg:px-[4.45%]">
 
-        <div class="mx-auto flex h-[86px] max-w-[1622px] items-center justify-between px-6 sm:px-10 lg:px-[4.45%]">
+        <a href="#home" class="shrink-0 text-[32px] font-extrabold leading-none tracking-[-0.09em]">
+            NOVA<span class="text-[#6D982B]">.</span>
+        </a>
 
-            <a href="#home" class="shrink-0 text-[32px] font-extrabold leading-none tracking-[-0.09em]">
-                NOVA<span class="text-[#6D982B]">.</span>
+        <nav class="hidden items-center gap-10 text-[14px] font-medium text-[#686D63] dark:text-[#B5BBAE] md:flex">
+            <a href="#shop" class="text-[#171916] dark:text-[#F8F9F5] transition-colors hover:text-[#6D982B]">Shop</a>
+            <a href="#collections" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">Collections</a>
+            <a href="#about" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">About</a>
+            <a href="#journal" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">Journal</a>
+        </nav>
+
+        <div class="flex items-center gap-3 sm:gap-5">
+
+            <button type="button" class="hidden items-center gap-2 text-[13px] font-medium text-[#686D63] dark:text-[#B5BBAE] sm:flex">
+                USD $
+                <i class="fi fi-rr-angle-small-down"></i>
+            </button>
+
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"
+                class="inline-flex items-center justify-center p-2 text-[18px] leading-none text-[#171916] dark:text-[#F8F9F5] transition-colors hover:text-[#6D982B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6D982B]">
+                <i id="theme-icon" class="fi fi-rr-moon" aria-hidden="true"></i>
+            </button>
+
+            <a href="#cart" class="flex h-[48px] items-center gap-3 rounded-full bg-[#B8F15A] px-5 text-[14px] font-bold transition-colors hover:bg-[#A9E84B]">
+                <i class="fi fi-rr-shopping-bag"></i>
+                Cart (0)
             </a>
 
-            <nav class="hidden items-center gap-10 text-[14px] font-medium text-[#686D63] md:flex">
+            <!-- Mobile Navigation -->
+            <details class="relative z-50 md:hidden">
+                <summary class="list-none cursor-pointer text-xl" aria-label="Open navigation">
+                    <i class="fi fi-rr-menu-burger"></i>
+                </summary>
 
-                <a href="#shop" class="text-[#171916] transition-colors hover:text-[#6D982B]">Shop</a>
-                <a href="#collections" class="transition-colors hover:text-[#171916]">Collections</a>
-                <a href="#about" class="transition-colors hover:text-[#171916]">About</a>
-                <a href="#journal" class="transition-colors hover:text-[#171916]">Journal</a>
-
-            </nav>
-
-            <div class="flex items-center gap-5 sm:gap-8">
-
-                <button type="button" class="hidden items-center gap-2 text-[13px] font-medium text-[#686D63] sm:flex">
-                    USD $
-                    <i class="fi fi-rr-angle-small-down"></i>
-                </button>
-
-                <a href="#cart" class="flex h-[48px] items-center gap-3 rounded-full bg-[#B8F15A] px-5 text-[14px] font-bold transition-colors hover:bg-[#A9E84B]">
-                    <i class="fi fi-rr-shopping-bag"></i>
-                    Cart (0)
-                </a>
-
-                <details class="relative md:hidden">
-                    <summary class="list-none cursor-pointer text-xl" aria-label="Open navigation">
-                        <i class="fi fi-rr-menu-burger"></i>
-                    </summary>
-
-                    <nav class="absolute right-0 top-10 z-50 flex w-48 flex-col gap-4 rounded-md border border-[#DDE0D7] bg-[#F8F9F5] p-5 text-sm text-[#686D63] shadow-lg">
-                        <a href="#shop">Shop</a>
-                        <a href="#collections">Collections</a>
-                        <a href="#about">About</a>
-                        <a href="#journal">Journal</a>
-                    </nav>
-                </details>
-
-            </div>
+                <nav class="absolute right-0 top-10 z-50 flex w-48 flex-col gap-4 rounded-md border border-[#DDE0D7] dark:border-[#34382F] bg-[#F8F9F5] dark:bg-[#171916] p-5 text-sm text-[#686D63] dark:text-[#B5BBAE] shadow-lg">
+                    <a href="#shop">Shop</a>
+                    <a href="#collections">Collections</a>
+                    <a href="#about">About</a>
+                    <a href="#journal">Journal</a>
+                </nav>
+            </details>
 
         </div>
+    </div>
+</header>
 
-    </header>
+<!-- Main -->
+<main id="home" class="scroll-mt-24 mx-auto max-w-[1622px] px-6 pb-8 pt-12 sm:px-10 sm:pt-14 lg:px-[4.45%] lg:pt-[64px]">
 
+    <!-- Hero -->
+    <section id="shop" class="scroll-mt-24 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr] lg:gap-[5.1%]">
 
-    <!-- Main -->
-    <main id="home" class="mx-auto max-w-[1622px] px-6 pb-8 pt-12 sm:px-10 sm:pt-14 lg:px-[4.45%] lg:pt-[64px]">
+        <div class="flex flex-col items-start">
 
-        <!-- Hero -->
-        <section id="shop" class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr] lg:gap-[5.1%]">
-
-            <div class="flex flex-col items-start">
-
-                <p class="mb-8 flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.17em] text-[#686D63] sm:mb-9">
-
-                    <span class="grid h-4 w-4 place-items-center rounded-[4px] bg-[#08C83D] text-[10px] text-white">
-                        <i class="fi fi-rr-asterisk"></i>
-                    </span>
-
-                    Less, but better. / Collection 026
-
-                </p>
-
-                <h1 class="max-w-[650px] text-[clamp(4.25rem,7.15vw,7.25rem)] font-semibold leading-[0.99] tracking-[-0.078em]">
-                    Elevate<br>
-                    your daily<br>
-                    carry.
-                </h1>
-
-                <p class="mt-8 max-w-[470px] text-[16px] font-medium leading-[1.85] text-[#686D63] sm:mt-9 sm:text-[17px]">
-                    Considered essentials for a life in motion. Designed
-                    <br class="hidden xl:block">
-                    with purpose. Made to go everywhere.
-                </p>
-
-                <div class="mt-8 flex w-full flex-wrap gap-3 sm:mt-9 sm:w-auto sm:gap-[13px]">
-
-                    <a href="#collections" class="flex min-h-[60px] min-w-[220px] flex-1 items-center justify-between gap-8 rounded-[4px] bg-[#B8F15A] px-6 text-[14px] font-bold transition-colors hover:bg-[#A9E84B] sm:min-w-[252px] sm:flex-none">
-                        Shop the collection
-                        <i class="fi fi-rr-arrow-up-right text-[17px]"></i>
-                    </a>
-
-                    <a href="#about" class="flex min-h-[60px] items-center justify-center rounded-[4px] border border-[#DDE0D7] px-6 text-[14px] font-bold transition-colors hover:border-[#171916] sm:min-w-[184px]">
-                        Explore our story
-                    </a>
-
-                </div>
-
-                <p class="mt-8 flex items-center gap-3 text-[12px] font-medium text-[#777D71]">
-                    <i class="fi fi-rr-truck-side text-[15px]"></i>
-                    Complimentary shipping on orders $150+
-                </p>
-
-            </div>
-
-
-            <!-- Hero Image -->
-            <div class="relative min-h-[470px] overflow-hidden rounded-[9px] bg-[#11130F] sm:min-h-[560px] lg:aspect-[1.12/1] lg:min-h-0">
-
-                <img
-                    src="./assets/d51484bd940f6e8d7073757a840d2eb393d324d1.jpg"
-                    alt="NOVA everyday essentials"
-                    class="absolute inset-0 h-full w-full object-cover object-center"
-                >
-
-                <div class="absolute left-7 right-7 top-7 flex items-center justify-between gap-3">
-
-                    <span class="text-[10px] font-medium uppercase tracking-[0.19em] text-white/80 sm:text-[11px]">
-                        Objects for the everyday
-                    </span>
-
-                    <span class="flex items-center gap-2 rounded-full bg-[#B8F15A] px-4 py-[9px] text-[10px] font-semibold uppercase text-[#171916]">
-                        <span class="h-[5px] w-[5px] rounded-full bg-[#171916]"></span>
-                        New season
-                    </span>
-
-                </div>
-
-                <a href="#product-1" class="absolute bottom-7 left-7 right-7 flex min-h-[86px] items-center justify-between gap-4 rounded-[4px] border border-[#DFE1D9] bg-[#F8F9F5] px-4 py-3 shadow-sm transition-transform hover:-translate-y-1 sm:px-[18px]">
-
-                    <span class="min-w-0">
-                        <span class="block truncate text-[19px] font-medium tracking-[-0.025em] sm:text-[22px]">
-                            The Transit Tote
-                        </span>
-
-                        <span class="mt-1 block text-[11px] font-medium text-[#686D63] sm:text-[12px]">
-                            Recycled nylon / Onyx — $128
-                        </span>
-                    </span>
-
-                    <span class="grid h-[40px] w-[40px] shrink-0 place-items-center rounded-full bg-[#B8F15A] text-[17px]">
-                        <i class="fi fi-rr-arrow-up-right"></i>
-                    </span>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- Collection -->
-        <section id="collections" class="mt-24 sm:mt-28 lg:mt-32">
-
-            <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-
-                <div>
-
-                    <p class="mb-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#686D63]">
-
-                        <span class="grid h-[13px] w-[13px] place-items-center rounded-[3px] bg-[#08C83D] text-[9px] text-white">
-                            <i class="fi fi-rr-asterisk"></i>
-                        </span>
-
-                        The considered collection
-
-                    </p>
-
-                    <h2 class="text-[32px] font-medium leading-tight tracking-[-0.055em] sm:text-[38px] lg:text-[42px]">
-                        Everyday, elevated.
-                    </h2>
-
-                </div>
-
-                <p class="max-w-[260px] text-[12px] leading-[1.8] text-[#686D63]">
-                    Fewer things. Better things. A curated edit of essentials that earn their place.
-                </p>
-
-            </div>
-
-
-            <!-- Filters -->
-            <div class="mt-7 flex flex-col gap-5 border-b border-[#DDE0D7] pb-5 sm:flex-row sm:items-center sm:justify-between">
-
-                <div class="flex flex-wrap items-center gap-2">
-
-                    <a href="#all-products" class="rounded-full border border-[#B8F15A] bg-[#B8F15A] px-[17px] py-[8px] text-[10px] font-semibold text-[#171916]">
-                        All Products
-                    </a>
-
-                    <a href="#apparel" class="rounded-full border border-[#DDE0D7] px-[17px] py-[8px] text-[10px] font-medium text-[#686D63] transition-colors hover:border-[#171916] hover:text-[#171916]">
-                        Apparel
-                    </a>
-
-                    <a href="#accessories" class="rounded-full border border-[#DDE0D7] px-[17px] py-[8px] text-[10px] font-medium text-[#686D63] transition-colors hover:border-[#171916] hover:text-[#171916]">
-                        Accessories
-                    </a>
-
-                    <a href="#limited-edition" class="rounded-full border border-[#DDE0D7] px-[17px] py-[8px] text-[10px] font-medium text-[#686D63] transition-colors hover:border-[#171916] hover:text-[#171916]">
-                        Limited Edition
-                    </a>
-
-                </div>
-
-                <div class="flex items-center gap-5 text-[10px] text-[#858A7E]">
-
-                    <span>6 objects</span>
-
-                    <span class="flex items-center gap-2">
-                        Featured
-                        <i class="fi fi-rr-angle-small-down"></i>
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- Products -->
-            <div id="all-products" class="mt-6 grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-7">
-
-
-                <!-- Product 1 -->
-                <article id="product-1" class="group">
-
-                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252622]">
-
-                        <img
-                            src="./assets/7b1621def034d00aa096f78e666f1aebde00871e.jpg"
-                            alt="The Transit Tote"
-                            loading="lazy"
-                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
-
-                        <span class="absolute left-3 top-3 rounded-[2px] bg-[#F8F9F5] px-2 py-[5px] text-[9px] uppercase tracking-wider">
-                            Bestseller
-                        </span>
-
-                        <a href="#product-1" aria-label="View Transit Tote" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
-                            <i class="fi fi-rr-eye"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="mt-3 flex items-center justify-between">
-                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">Accessories</span>
-                        <span class="h-[6px] w-[6px] rounded-full bg-[#383A32]"></span>
-                    </div>
-
-                    <div class="mt-1 flex items-center justify-between gap-3">
-                        <h3 class="text-[14px] font-medium">The Transit Tote</h3>
-                        <span class="text-[12px] font-medium">$128</span>
-                    </div>
-
-                    <p class="mt-2 text-[10px] text-[#686D63]">Onyx / Recycled nylon</p>
-
-                </article>
-
-
-                <!-- Product 2 -->
-                <article id="apparel" class="group">
-
-                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
-
-                        <img
-                            src="./assets/7e19c7515d988d350bdb2f8b8e3314114d9fc1bd.jpg"
-                            alt="The Essential Tee"
-                            loading="lazy"
-                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
-
-                        <a href="#apparel" aria-label="View Essential Tee" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
-                            <i class="fi fi-rr-eye"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="mt-3 flex items-center justify-between">
-                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">Apparel</span>
-                        <span class="h-[6px] w-[6px] rounded-full bg-[#D8D6C8]"></span>
-                    </div>
-
-                    <div class="mt-1 flex items-center justify-between gap-3">
-                        <h3 class="text-[14px] font-medium">The Essential Tee</h3>
-                        <span class="text-[12px] font-medium">$58</span>
-                    </div>
-
-                    <p class="mt-2 text-[10px] text-[#686D63]">Chalk / Organic cotton</p>
-
-                </article>
-
-
-                <!-- Product 3 -->
-                <article id="accessories" class="group">
-
-                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
-
-                        <img
-                            src="./assets/26bcdc5249b37c03d1f23d6a1cad183f112a9d0a.jpg"
-                            alt="The Form Sling"
-                            loading="lazy"
-                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
-
-                        <span class="absolute left-3 top-3 rounded-[2px] bg-[#B8F15A] px-2 py-[5px] text-[9px] uppercase">
-                            New
-                        </span>
-
-                        <a href="#accessories" aria-label="View Form Sling" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
-                            <i class="fi fi-rr-eye"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="mt-3 flex items-center justify-between">
-                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">Accessories</span>
-                        <span class="h-[6px] w-[6px] rounded-full bg-[#727A58]"></span>
-                    </div>
-
-                    <div class="mt-1 flex items-center justify-between gap-3">
-                        <h3 class="text-[14px] font-medium">The Form Sling</h3>
-                        <span class="text-[12px] font-medium">$86</span>
-                    </div>
-
-                    <p class="mt-2 text-[10px] text-[#686D63]">Moss / Recycled nylon</p>
-
-                </article>
-
-
-                <!-- Product 4 -->
-                <article class="group">
-
-                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
-
-                        <img
-                            src="./assets/d51484bd940f6e8d7073757a840d2eb393d324d1.jpg"
-                            alt="The Studio Cap"
-                            loading="lazy"
-                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
-
-                        <a href="#product-4" aria-label="View Studio Cap" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
-                            <i class="fi fi-rr-eye"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="mt-3 flex items-center justify-between">
-                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">Accessories</span>
-                        <span class="h-[6px] w-[6px] rounded-full bg-[#383A32]"></span>
-                    </div>
-
-                    <div class="mt-1 flex items-center justify-between gap-3">
-                        <h3 class="text-[14px] font-medium">The Studio Cap</h3>
-                        <span class="text-[12px] font-medium">$42</span>
-                    </div>
-
-                    <p class="mt-2 text-[10px] text-[#686D63]">Onyx / Cotton twill</p>
-
-                </article>
-
-
-                <!-- Product 5 -->
-                <article class="group">
-
-                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
-
-                        <img
-                            src="./assets/b548ce81fbc69cd36d8ac3af5b638a6db97dfdc3.jpg"
-                            alt="The Heavyweight Hoodie"
-                            loading="lazy"
-                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
-
-                        <a href="#product-5" aria-label="View Heavyweight Hoodie" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
-                            <i class="fi fi-rr-eye"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="mt-3 flex items-center justify-between">
-                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">Apparel</span>
-                        <span class="h-[6px] w-[6px] rounded-full bg-[#383A32]"></span>
-                    </div>
-
-                    <div class="mt-1 flex items-center justify-between gap-3">
-                        <h3 class="text-[14px] font-medium">The Heavyweight Hoodie</h3>
-                        <span class="text-[12px] font-medium">$148</span>
-                    </div>
-
-                    <p class="mt-2 text-[10px] text-[#686D63]">Graphite / Organic cotton</p>
-
-                </article>
-
-
-                <!-- Product 6 -->
-                <article id="limited-edition" class="group">
-
-                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
-
-                        <img
-                            src="./assets/c24b69425eb7bf9d405dc3fabe7ea882ed7a801a.jpg"
-                            alt="The Everyday Kit"
-                            loading="lazy"
-                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
-
-                        <span class="absolute left-3 top-3 rounded-[2px] bg-[#F8F9F5] px-2 py-[5px] text-[9px] uppercase tracking-wider">
-                            Limited / 100
-                        </span>
-
-                        <a href="#limited-edition" aria-label="View Everyday Kit" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
-                            <i class="fi fi-rr-eye"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="mt-3 flex items-center justify-between">
-                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">Limited Edition</span>
-                        <span class="h-[6px] w-[6px] rounded-full bg-[#727A58]"></span>
-                    </div>
-
-                    <div class="mt-1 flex items-center justify-between gap-3">
-                        <h3 class="text-[14px] font-medium">The Everyday Kit</h3>
-                        <span class="text-[12px] font-medium">$168</span>
-                    </div>
-
-                    <p class="mt-2 text-[10px] text-[#686D63]">Moss / 100 sets worldwide</p>
-
-                </article>
-
-            </div>
-
-            <p class="mt-16 pb-6 text-center text-[11px] font-medium text-[#858A7E]">
-                Thoughtfully designed. Intentionally limited.
+            <p class="mb-8 flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.17em] text-[#686D63] dark:text-[#B5BBAE] sm:mb-9">
+                <span class="grid h-4 w-4 place-items-center rounded-[4px] bg-[#08C83D] text-[10px] text-white">
+                    <i class="fi fi-rr-asterisk"></i>
+                </span>
+                Less, but better. / Collection 026
             </p>
 
-        </section>
+            <h1 class="max-w-[650px] text-[clamp(4.25rem,7.15vw,7.25rem)] font-semibold leading-[0.99] tracking-[-0.078em]">
+                Elevate<br>
+                your daily<br>
+                carry.
+            </h1>
 
+            <p class="mt-8 max-w-[470px] text-[16px] font-medium leading-[1.85] text-[#686D63] dark:text-[#B5BBAE] sm:mt-9 sm:text-[17px]">
+                Considered essentials for a life in motion. Designed
+                <br class="hidden xl:block">
+                with purpose. Made to go everywhere.
+            </p>
 
-        <!-- Studio -->
-        <section id="about" class="-mx-6 mt-12 border-y border-[#DDE0D7] bg-[#F0F1EB] sm:-mx-10 lg:-mx-[4.45%]">
+            <div class="mt-8 flex w-full flex-wrap gap-3 sm:mt-9 sm:w-auto sm:gap-[13px]">
 
-            <div class="grid grid-cols-1 lg:grid-cols-2">
+                <a href="#collections" class="flex min-h-[60px] min-w-[220px] flex-1 items-center justify-between gap-8 rounded-[4px] bg-[#B8F15A] px-6 text-[14px] font-bold transition-colors hover:bg-[#A9E84B] sm:min-w-[252px] sm:flex-none">
+                    Shop the collection
+                    <i class="fi fi-rr-arrow-up-right text-[17px]"></i>
+                </a>
 
-                <!-- Studio Image -->
-                <div class="relative min-h-[360px] overflow-hidden sm:min-h-[430px] lg:min-h-[430px]">
-
-                    <img
-                        src="./assets/758e0ae77aeaad293ac81495d2f6f3e05e8af0c1.jpg"
-                        alt="A closer look at the NOVA tote construction"
-                        loading="lazy"
-                        class="absolute inset-0 h-full w-full object-cover object-center"
-                    >
-
-                    <p class="absolute bottom-6 left-6 flex items-center gap-2 text-[9px] font-medium uppercase tracking-[0.16em] text-white sm:bottom-7 sm:left-7">
-
-                        <span class="text-[#B8F15A]">01 /</span>
-
-                        A study in material & form
-
-                    </p>
-
-                </div>
-
-
-                <!-- Studio Text -->
-                <div class="flex flex-col justify-center px-7 py-16 sm:px-12 lg:px-[9%] lg:py-20">
-
-                    <p class="mb-5 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.17em] text-[#686D63]">
-
-                        <span class="grid h-[13px] w-[13px] place-items-center rounded-[3px] bg-[#08C83D] text-[9px] text-white">
-                            <i class="fi fi-rr-asterisk"></i>
-                        </span>
-
-                        Purpose in every detail
-
-                    </p>
-
-                    <h2 class="max-w-[480px] text-[38px] font-medium leading-[1.2] tracking-[-0.055em] sm:text-[42px] lg:text-[42px]">
-                        Nothing extra.<br>
-                        Nothing ordinary.
-                    </h2>
-
-                    <p class="mt-5 max-w-[470px] text-[12px] font-medium leading-[1.9] text-[#777D71] sm:text-[13px]">
-                        From the first sketch to the final stitch, we obsess over what matters. Responsible materials. Honest construction. Objects that look better and work harder, for longer.
-                    </p>
-
-                    <a href="#journal" class="mt-6 flex w-fit items-center gap-4 border-b border-[#AEB3A7] pb-2 text-[10px] font-semibold transition-colors hover:border-[#6D982B] hover:text-[#6D982B]">
-
-                        Inside the studio
-
-                        <i class="fi fi-rr-arrow-up-right text-[14px] text-[#6D982B]"></i>
-
-                    </a>
-
-                </div>
+                <a href="#about" class="flex min-h-[60px] items-center justify-center rounded-[4px] border border-[#DDE0D7] dark:border-[#34382F] px-6 text-[14px] font-bold transition-colors hover:border-[#171916] dark:hover:border-[#F8F9F5] sm:min-w-[184px]">
+                    Explore our story
+                </a>
 
             </div>
 
-        </section>
+            <p class="mt-8 flex items-center gap-3 text-[12px] font-medium text-[#777D71] dark:text-[#A8AE9F]">
+                <i class="fi fi-rr-truck-side text-[15px]"></i>
+                Complimentary shipping on orders $150+
+            </p>
 
+        </div>
 
-        <!-- Studio Statistics -->
-        <section class="-mx-6 grid grid-cols-1 border-b border-[#DDE0D7] bg-[#F0F1EB] px-6 py-8 sm:-mx-10 sm:grid-cols-3 sm:px-10 sm:py-8 lg:-mx-[4.45%] lg:px-[4.45%]">
+        <!-- Hero Image -->
+        <div class="relative min-h-[470px] overflow-hidden rounded-[9px] bg-[#11130F] sm:min-h-[560px] lg:aspect-[1.12/1] lg:min-h-0">
 
-            <div class="flex items-center gap-5 border-b border-[#DDE0D7] py-5 sm:border-b-0 sm:border-r sm:py-2">
+            <img src="./assets/d51484bd940f6e8d7073757a840d2eb393d324d1.jpg" alt="NOVA everyday essentials"
+                class="absolute inset-0 h-full w-full object-cover object-center">
 
-                <span class="text-[32px] font-medium tracking-[-0.06em] text-[#597D25] sm:text-[36px]">
-                    100%
+            <div class="absolute left-7 right-7 top-7 flex items-center justify-between gap-3">
+                <span class="text-[10px] font-medium uppercase tracking-[0.19em] text-white/80 sm:text-[11px]">
+                    Objects for the everyday
                 </span>
 
-                <div>
-                    <h3 class="text-[11px] font-semibold">Considered materials</h3>
-                    <p class="mt-1 text-[9px] leading-[1.7] text-[#777D71]">
-                        Recycled nylon. Organic cotton. No shortcuts.
-                    </p>
-                </div>
-
+                <span class="flex items-center gap-2 rounded-full bg-[#B8F15A] px-4 py-[9px] text-[10px] font-semibold uppercase text-[#171916]">
+                    <span class="h-[5px] w-[5px] rounded-full bg-[#171916]"></span>
+                    New season
+                </span>
             </div>
 
+            <a href="#product-1" class="absolute bottom-7 left-7 right-7 flex min-h-[86px] items-center justify-between gap-4 rounded-[4px] border border-[#DFE1D9] dark:border-[#34382F] bg-[#F8F9F5] dark:bg-[#20231D] px-4 py-3 shadow-sm transition-transform hover:-translate-y-1 sm:px-[18px]">
 
-            <div class="flex items-center gap-5 border-b border-[#DDE0D7] py-5 sm:border-b-0 sm:border-r sm:px-6 sm:py-2 lg:px-8">
-
-                <span class="text-[32px] font-medium tracking-[-0.06em] text-[#597D25] sm:text-[36px]">
-                    02
+                <span class="min-w-0">
+                    <span class="block truncate text-[19px] font-medium tracking-[-0.025em] sm:text-[22px]">
+                        The Transit Tote
+                    </span>
+                    <span class="mt-1 block text-[11px] font-medium text-[#686D63] dark:text-[#B5BBAE] sm:text-[12px]">
+                        Recycled nylon / Onyx — $128
+                    </span>
                 </span>
 
-                <div>
-                    <h3 class="text-[11px] font-semibold">Collections per year</h3>
-                    <p class="mt-1 text-[9px] leading-[1.7] text-[#777D71]">
-                        Slower releases. More intention in every piece.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="flex items-center gap-5 py-5 sm:pl-6 sm:py-2 lg:pl-8">
-
-                <span class="text-[32px] font-medium tracking-[-0.06em] text-[#597D25] sm:text-[36px]">
-                    365
+                <span class="grid h-[40px] w-[40px] shrink-0 place-items-center rounded-full bg-[#B8F15A] text-[17px] text-[#171916]">
+                    <i class="fi fi-rr-arrow-up-right"></i>
                 </span>
 
-                <div>
-                    <h3 class="text-[11px] font-semibold">Days of possibility</h3>
-                    <p class="mt-1 text-[9px] leading-[1.7] text-[#777D71]">
-                        Made for the everyday. Built for the long run.
-                    </p>
-                </div>
+            </a>
+        </div>
 
-            </div>
+    </section>
 
-        </section>
+    <!-- Collection -->
+    <section id="collections" class="scroll-mt-24 mt-24 sm:mt-28 lg:mt-32">
 
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 
-        <!-- Journal Anchor -->
-        <section id="journal"></section>
-
-    </main>
-
-
-    <!-- Footer -->
-    <footer class="border-t border-[#DDE0D7] bg-[#F8F9F5]">
-
-        <div class="mx-auto max-w-[1622px] px-6 py-14 sm:px-10 lg:px-[4.45%] lg:py-16">
-
-            <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.05fr_0.65fr_0.65fr_1.4fr] lg:gap-10">
-
-
-                <!-- Brand -->
-                <div>
-
-                    <a href="#home" class="text-[32px] font-extrabold leading-none tracking-[-0.09em]">
-                        NOVA<span class="text-[#6D982B]">.</span>
-                    </a>
-
-                    <p class="mt-6 max-w-[220px] text-[11px] leading-[1.9] text-[#686D63]">
-                        Independent design studio. Considered objects for the way you move through the world.
-                    </p>
-
-                    <div class="mt-5 flex items-center gap-5 text-[10px] font-medium">
-
-                        <a href="#instagram" class="flex items-center gap-1 transition-colors hover:text-[#6D982B]">
-                            Instagram
-                            <i class="fi fi-rr-arrow-up-right text-[10px]"></i>
-                        </a>
-
-                        <a href="#pinterest" class="flex items-center gap-1 transition-colors hover:text-[#6D982B]">
-                            Pinterest
-                            <i class="fi fi-rr-arrow-up-right text-[10px]"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Explore -->
-                <div>
-
-                    <h3 class="mb-5 text-[10px] font-bold">
-                        Explore
-                    </h3>
-
-                    <nav class="flex flex-col gap-3 text-[10px] text-[#686D63]">
-
-                        <a href="#shop" class="transition-colors hover:text-[#171916]">Shop</a>
-                        <a href="#collections" class="transition-colors hover:text-[#171916]">Collections</a>
-                        <a href="#about" class="transition-colors hover:text-[#171916]">About</a>
-                        <a href="#journal" class="transition-colors hover:text-[#171916]">Journal</a>
-
-                    </nav>
-
-                </div>
-
-
-                <!-- Help -->
-                <div>
-
-                    <h3 class="mb-5 text-[10px] font-bold">
-                        Here to help
-                    </h3>
-
-                    <nav class="flex flex-col gap-3 text-[10px] text-[#686D63]">
-
-                        <a href="#contact" class="transition-colors hover:text-[#171916]">Contact</a>
-                        <a href="#shipping" class="transition-colors hover:text-[#171916]">Shipping & returns</a>
-                        <a href="#care" class="transition-colors hover:text-[#171916]">Care guide</a>
-                        <a href="#faqs" class="transition-colors hover:text-[#171916]">FAQs</a>
-
-                    </nav>
-
-                </div>
-
-
-                <!-- Newsletter -->
-                <div>
-
-                    <h3 class="text-[19px] font-medium tracking-[-0.035em]">
-                        Stay in the loop.
-                    </h3>
-
-                    <p class="mt-3 text-[10px] leading-[1.9] text-[#686D63]">
-                        New objects, studio notes, and early access. Only when we have something worth sharing.
-                    </p>
-
-                    <form action="#" class="mt-4 flex h-[39px] items-center gap-2 rounded-[3px] border border-[#DDE0D7] bg-white p-1">
-
-                        <input
-                            type="email"
-                            placeholder="Your email address"
-                            aria-label="Your email address"
-                            class="h-full min-w-0 flex-1 bg-transparent px-2 text-[10px] text-[#171916] outline-none placeholder:text-[#858A7E]"
-                        >
-
-                        <button type="submit" aria-label="Subscribe" class="grid h-[28px] w-[28px] shrink-0 place-items-center rounded-[3px] bg-[#B8F15A] text-[14px] transition-colors hover:bg-[#A9E84B]">
-
-                            <i class="fi fi-rr-arrow-right"></i>
-
-                        </button>
-
-                    </form>
-
-                    <p class="mt-3 text-[8px] leading-[1.7] text-[#858A7E]">
-                        By subscribing, you agree to our Privacy Policy.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- Footer Bottom -->
-            <div class="mt-12 grid grid-cols-1 gap-4 border-t border-[#DDE0D7] pt-5 text-[9px] text-[#858A7E] sm:grid-cols-3 sm:items-center">
-
-                <p>
-                    © 2026 NOVA Studio. All rights reserved.
+            <div>
+                <p class="mb-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#686D63] dark:text-[#B5BBAE]">
+                    <span class="grid h-[13px] w-[13px] place-items-center rounded-[3px] bg-[#08C83D] text-[9px] text-white">
+                        <i class="fi fi-rr-asterisk"></i>
+                    </span>
+                    The considered collection
                 </p>
 
-                <p class="uppercase tracking-[0.15em] sm:text-center">
-                    Designed with intention.
-                </p>
+                <h2 class="text-[32px] font-medium leading-tight tracking-[-0.055em] sm:text-[38px] lg:text-[42px]">
+                    Everyday, elevated.
+                </h2>
+            </div>
 
-                <div class="flex items-center gap-5 sm:justify-end">
+            <p class="max-w-[260px] text-[12px] leading-[1.8] text-[#686D63] dark:text-[#B5BBAE]">
+                Fewer things. Better things. A curated edit of essentials that earn their place.
+            </p>
 
-                    <a href="#privacy" class="transition-colors hover:text-[#171916]">
-                        Privacy Policy
-                    </a>
+        </div>
 
-                    <a href="#terms" class="transition-colors hover:text-[#171916]">
-                        Terms of Service
-                    </a>
+        <!-- Filters -->
+        <div class="mt-7 flex flex-col gap-5 border-b border-[#DDE0D7] dark:border-[#34382F] pb-5 sm:flex-row sm:items-center sm:justify-between">
 
-                </div>
+            <div class="flex flex-wrap items-center gap-2">
 
+                <a href="#all-products" class="rounded-full border border-[#B8F15A] bg-[#B8F15A] px-[17px] py-[8px] text-[10px] font-semibold text-[#171916]">
+                    All Products
+                </a>
+
+                <a href="#apparel" class="rounded-full border border-[#DDE0D7] dark:border-[#34382F] px-[17px] py-[8px] text-[10px] font-medium text-[#686D63] dark:text-[#B5BBAE] transition-colors hover:border-[#171916] dark:hover:border-[#F8F9F5] hover:text-[#171916] dark:hover:text-[#F8F9F5]">
+                    Apparel
+                </a>
+
+                <a href="#accessories" class="rounded-full border border-[#DDE0D7] dark:border-[#34382F] px-[17px] py-[8px] text-[10px] font-medium text-[#686D63] dark:text-[#B5BBAE] transition-colors hover:border-[#171916] dark:hover:border-[#F8F9F5] hover:text-[#171916] dark:hover:text-[#F8F9F5]">
+                    Accessories
+                </a>
+
+                <a href="#limited-edition" class="rounded-full border border-[#DDE0D7] dark:border-[#34382F] px-[17px] py-[8px] text-[10px] font-medium text-[#686D63] dark:text-[#B5BBAE] transition-colors hover:border-[#171916] dark:hover:border-[#F8F9F5] hover:text-[#171916] dark:hover:text-[#F8F9F5]">
+                    Limited Edition
+                </a>
+
+            </div>
+
+            <div class="flex items-center gap-5 text-[10px] text-[#858A7E] dark:text-[#969D8F]">
+                <span>6 objects</span>
+                <span class="flex items-center gap-2">
+                    Featured
+                    <i class="fi fi-rr-angle-small-down"></i>
+                </span>
             </div>
 
         </div>
 
-    </footer>
+        <!-- Products -->
+        <div id="all-products" class="mt-6 grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-7">
 
+            <!-- Product 1 -->
+            <article id="product-1" class="group">
+                <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252622]">
+                    <img src="./assets/7b1621def034d00aa096f78e666f1aebde00871e.jpg" alt="The Transit Tote" loading="lazy"
+                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <span class="absolute left-3 top-3 rounded-[2px] bg-[#F8F9F5] dark:bg-[#20231D] px-2 py-[5px] text-[9px] uppercase tracking-wider">
+                        Bestseller
+                    </span>
+
+                    <a href="#product-1" aria-label="View Transit Tote" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] dark:bg-[#20231D] text-[#171916] dark:text-[#F8F9F5] transition-colors hover:bg-[#B8F15A]">
+                        <i class="fi fi-rr-eye"></i>
+                    </a>
+                </div>
+
+                <div class="mt-3 flex items-center justify-between">
+                    <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E] dark:text-[#969D8F]">Accessories</span>
+                    <span class="h-[6px] w-[6px] rounded-full bg-[#383A32]"></span>
+                </div>
+
+                <div class="mt-1 flex items-center justify-between gap-3">
+                    <h3 class="text-[14px] font-medium">The Transit Tote</h3>
+                    <span class="text-[12px] font-medium">$128</span>
+                </div>
+                <p class="mt-2 text-[10px] text-[#686D63] dark:text-[#B5BBAE]">Onyx / Recycled nylon</p>
+            </article>
+
+            <!-- Product 2 -->
+            <article id="apparel" class="group">
+                <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
+                    <img src="./assets/7e19c7515d988d350bdb2f8b8e3314114d9fc1bd.jpg" alt="The Essential Tee" loading="lazy"
+                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <a href="#apparel" aria-label="View Essential Tee" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] dark:bg-[#20231D] text-[#171916] dark:text-[#F8F9F5] transition-colors hover:bg-[#B8F15A]">
+                        <i class="fi fi-rr-eye"></i>
+                    </a>
+                </div>
+
+                <div class="mt-3 flex items-center justify-between">
+                    <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E] dark:text-[#969D8F]">Apparel</span>
+                    <span class="h-[6px] w-[6px] rounded-full bg-[#D8D6C8]"></span>
+                </div>
+
+                <div class="mt-1 flex items-center justify-between gap-3">
+                    <h3 class="text-[14px] font-medium">The Essential Tee</h3>
+                    <span class="text-[12px] font-medium">$58</span>
+                </div>
+                <p class="mt-2 text-[10px] text-[#686D63] dark:text-[#B5BBAE]">Chalk / Organic cotton</p>
+            </article>
+
+            <!-- Product 3 -->
+            <article id="accessories" class="group">
+                <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
+                    <img src="./assets/26bcdc5249b37c03d1f23d6a1cad183f112a9d0a.jpg" alt="The Form Sling" loading="lazy"
+                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <span class="absolute left-3 top-3 rounded-[2px] bg-[#B8F15A] px-2 py-[5px] text-[9px] uppercase">
+                        New
+                    </span>
+
+                    <a href="#accessories" aria-label="View Form Sling" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] dark:bg-[#20231D] text-[#171916] dark:text-[#F8F9F5] transition-colors hover:bg-[#B8F15A]">
+                        <i class="fi fi-rr-eye"></i>
+                    </a>
+                </div>
+
+                <div class="mt-3 flex items-center justify-between">
+                    <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E] dark:text-[#969D8F]">Accessories</span>
+                    <span class="h-[6px] w-[6px] rounded-full bg-[#727A58]"></span>
+                </div>
+
+                <div class="mt-1 flex items-center justify-between gap-3">
+                    <h3 class="text-[14px] font-medium">The Form Sling</h3>
+                    <span class="text-[12px] font-medium">$86</span>
+                </div>
+                <p class="mt-2 text-[10px] text-[#686D63] dark:text-[#B5BBAE]">Moss / Recycled nylon</p>
+            </article>
+
+            <!-- Product 4 -->
+            <article class="group">
+                <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
+                    <img src="./assets/d51484bd940f6e8d7073757a840d2eb393d324d1.jpg" alt="The Studio Cap" loading="lazy"
+                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <a href="#product-4" aria-label="View Studio Cap" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] dark:bg-[#20231D] text-[#171916] dark:text-[#F8F9F5] transition-colors hover:bg-[#B8F15A]">
+                        <i class="fi fi-rr-eye"></i>
+                    </a>
+                </div>
+
+                <div class="mt-3 flex items-center justify-between">
+                    <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E] dark:text-[#969D8F]">Accessories</span>
+                    <span class="h-[6px] w-[6px] rounded-full bg-[#383A32]"></span>
+                </div>
+
+                <div class="mt-1 flex items-center justify-between gap-3">
+                    <h3 class="text-[14px] font-medium">The Studio Cap</h3>
+                    <span class="text-[12px] font-medium">$42</span>
+                </div>
+                <p class="mt-2 text-[10px] text-[#686D63] dark:text-[#B5BBAE]">Onyx / Cotton twill</p>
+            </article>
+
+            <!-- Product 5 -->
+            <article class="group">
+                <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
+                    <img src="./assets/b548ce81fbc69cd36d8ac3af5b638a6db97dfdc3.jpg" alt="The Heavyweight Hoodie" loading="lazy"
+                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <a href="#product-5" aria-label="View Heavyweight Hoodie" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] dark:bg-[#20231D] text-[#171916] dark:text-[#F8F9F5] transition-colors hover:bg-[#B8F15A]">
+                        <i class="fi fi-rr-eye"></i>
+                    </a>
+                </div>
+
+                <div class="mt-3 flex items-center justify-between">
+                    <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E] dark:text-[#969D8F]">Apparel</span>
+                    <span class="h-[6px] w-[6px] rounded-full bg-[#383A32]"></span>
+                </div>
+
+                <div class="mt-1 flex items-center justify-between gap-3">
+                    <h3 class="text-[14px] font-medium">The Heavyweight Hoodie</h3>
+                    <span class="text-[12px] font-medium">$148</span>
+                </div>
+                <p class="mt-2 text-[10px] text-[#686D63] dark:text-[#B5BBAE]">Graphite / Organic cotton</p>
+            </article>
+
+            <!-- Product 6 -->
+            <article id="limited-edition" class="group">
+                <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
+                    <img src="./assets/c24b69425eb7bf9d405dc3fabe7ea882ed7a801a.jpg" alt="The Everyday Kit" loading="lazy"
+                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <span class="absolute left-3 top-3 rounded-[2px] bg-[#F8F9F5] dark:bg-[#20231D] px-2 py-[5px] text-[9px] uppercase tracking-wider">
+                        Limited / 100
+                    </span>
+
+                    <a href="#limited-edition" aria-label="View Everyday Kit" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] dark:bg-[#20231D] text-[#171916] dark:text-[#F8F9F5] transition-colors hover:bg-[#B8F15A]">
+                        <i class="fi fi-rr-eye"></i>
+                    </a>
+                </div>
+
+                <div class="mt-3 flex items-center justify-between">
+                    <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E] dark:text-[#969D8F]">Limited Edition</span>
+                    <span class="h-[6px] w-[6px] rounded-full bg-[#727A58]"></span>
+                </div>
+
+                <div class="mt-1 flex items-center justify-between gap-3">
+                    <h3 class="text-[14px] font-medium">The Everyday Kit</h3>
+                    <span class="text-[12px] font-medium">$168</span>
+                </div>
+                <p class="mt-2 text-[10px] text-[#686D63] dark:text-[#B5BBAE]">Moss / 100 sets worldwide</p>
+            </article>
+
+        </div>
+
+        <p class="mt-16 pb-6 text-center text-[11px] font-medium text-[#858A7E] dark:text-[#969D8F]">
+            Thoughtfully designed. Intentionally limited.
+        </p>
+
+    </section>
+
+    
+    <!-- Studio -->
+    <section id="about" class="scroll-mt-24 -mx-6 mt-12 border-y border-[#DDE0D7] dark:border-[#34382F] bg-[#F0F1EB] dark:bg-[#20231D] sm:-mx-10 lg:-mx-[4.45%]">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+
+            <div class="relative min-h-[360px] overflow-hidden sm:min-h-[430px] lg:min-h-[430px]">
+                <img src="./assets/758e0ae77aeaad293ac81495d2f6f3e05e8af0c1.jpg"
+                    alt="A closer look at the NOVA tote construction"
+                    loading="lazy"
+                    class="absolute inset-0 h-full w-full object-cover object-center">
+
+                <p class="absolute bottom-6 left-6 flex items-center gap-2 text-[9px] font-medium uppercase tracking-[0.16em] text-white sm:bottom-7 sm:left-7">
+                    <span class="text-[#B8F15A]">01 /</span>
+                    A study in material & form
+                </p>
+            </div>
+
+            <div class="flex flex-col justify-center px-7 py-16 sm:px-12 lg:px-[9%] lg:py-20">
+
+                <p class="mb-5 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.17em] text-[#686D63] dark:text-[#B5BBAE]">
+                    <span class="grid h-[13px] w-[13px] place-items-center rounded-[3px] bg-[#08C83D] text-[9px] text-white">
+                        <i class="fi fi-rr-asterisk"></i>
+                    </span>
+                    Purpose in every detail
+                </p>
+
+                <h2 class="max-w-[480px] text-[38px] font-medium leading-[1.2] tracking-[-0.055em] sm:text-[42px] lg:text-[42px]">
+                    Nothing extra.<br>
+                    Nothing ordinary.
+                </h2>
+
+                <p class="mt-5 max-w-[470px] text-[12px] font-medium leading-[1.9] text-[#777D71] dark:text-[#A8AE9F] sm:text-[13px]">
+                    From the first sketch to the final stitch, we obsess over what matters. Responsible materials.
+                    Honest construction. Objects that look better and work harder, for longer.
+                </p>
+
+                <a href="#journal" class="mt-6 flex w-fit items-center gap-4 border-b border-[#AEB3A7] dark:border-[#555D4D] pb-2 text-[10px] font-semibold transition-colors hover:border-[#6D982B] hover:text-[#6D982B]">
+                    Inside the studio
+                    <i class="fi fi-rr-arrow-up-right text-[14px] text-[#6D982B]"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="-mx-6 grid grid-cols-1 border-b border-[#DDE0D7] dark:border-[#34382F] bg-[#F0F1EB] dark:bg-[#20231D] px-6 py-8 sm:-mx-10 sm:grid-cols-3 sm:px-10 sm:py-8 lg:-mx-[4.45%] lg:px-[4.45%]">
+
+        <div class="flex items-center gap-5 border-b border-[#DDE0D7] dark:border-[#34382F] py-5 sm:border-b-0 sm:border-r sm:py-2">
+            <span class="text-[32px] font-medium tracking-[-0.06em] text-[#597D25] sm:text-[36px]">
+                100%
+            </span>
+            <div>
+                <h3 class="text-[11px] font-semibold">Considered materials</h3>
+                <p class="mt-1 text-[9px] leading-[1.7] text-[#777D71] dark:text-[#A8AE9F]">
+                    Recycled nylon. Organic cotton. No shortcuts.
+                </p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-5 border-b border-[#DDE0D7] dark:border-[#34382F] py-5 sm:border-b-0 sm:border-r sm:px-6 sm:py-2 lg:px-8">
+            <span class="text-[32px] font-medium tracking-[-0.06em] text-[#597D25] sm:text-[36px]">
+                02
+            </span>
+            <div>
+                <h3 class="text-[11px] font-semibold">Collections per year</h3>
+                <p class="mt-1 text-[9px] leading-[1.7] text-[#777D71] dark:text-[#A8AE9F]">
+                    Slower releases. More intention in every piece.
+                </p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-5 py-5 sm:pl-6 sm:py-2 lg:pl-8">
+            <span class="text-[32px] font-medium tracking-[-0.06em] text-[#597D25] sm:text-[36px]">
+                365
+            </span>
+            <div>
+                <h3 class="text-[11px] font-semibold">Days of possibility</h3>
+                <p class="mt-1 text-[9px] leading-[1.7] text-[#777D71] dark:text-[#A8AE9F]">
+                    Made for the everyday. Built for the long run.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="journal" class="scroll-mt-24"></section>
+
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-[#DDE0D7] dark:border-[#34382F] bg-[#F8F9F5] dark:bg-[#171916]">
+
+    <div class="mx-auto max-w-[1622px] px-6 py-14 sm:px-10 lg:px-[4.45%] lg:py-16">
+
+        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.05fr_0.65fr_0.65fr_1.4fr] lg:gap-10">
+
+            <!-- Brand -->
+            <div>
+                <a href="#home" class="text-[32px] font-extrabold leading-none tracking-[-0.09em]">
+                    NOVA<span class="text-[#6D982B]">.</span>
+                </a>
+
+                <p class="mt-6 max-w-[220px] text-[11px] leading-[1.9] text-[#686D63] dark:text-[#B5BBAE]">
+                    Independent design studio. Considered objects for the way you move through the world.
+                </p>
+
+                <div class="mt-5 flex items-center gap-5 text-[10px] font-medium">
+                    <a href="#instagram" class="flex items-center gap-1 transition-colors hover:text-[#6D982B]">
+                        Instagram
+                        <i class="fi fi-rr-arrow-up-right text-[10px]"></i>
+                    </a>
+
+                    <a href="#pinterest" class="flex items-center gap-1 transition-colors hover:text-[#6D982B]">
+                        Pinterest
+                        <i class="fi fi-rr-arrow-up-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Explore -->
+            <div>
+                <h3 class="mb-5 text-[10px] font-bold">Explore</h3>
+
+                <nav class="flex flex-col gap-3 text-[10px] text-[#686D63] dark:text-[#B5BBAE]">
+                    <a href="#shop" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">Shop</a>
+                    <a href="#collections" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">Collections</a>
+                    <a href="#about" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">About</a>
+                    <a href="#journal" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">Journal</a>
+                </nav>
+            </div>
+
+            <!-- Help -->
+            <div>
+                <h3 class="mb-5 text-[10px] font-bold">Here to help</h3>
+
+                <nav class="flex flex-col gap-3 text-[10px] text-[#686D63] dark:text-[#B5BBAE]">
+                    <a href="#contact" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">Contact</a>
+                    <a href="#shipping" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">Shipping & returns</a>
+                    <a href="#care" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">Care guide</a>
+                    <a href="#faqs" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">FAQs</a>
+                </nav>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h3 class="text-[19px] font-medium tracking-[-0.035em]">
+                    Stay in the loop.
+                </h3>
+
+                <p class="mt-3 text-[10px] leading-[1.9] text-[#686D63] dark:text-[#B5BBAE]">
+                    New objects, studio notes, and early access. Only when we have something worth sharing.
+                </p>
+
+                <form action="#" class="mt-4 flex h-[39px] items-center gap-2 rounded-[3px] border border-[#DDE0D7] dark:border-[#34382F] bg-white dark:bg-[#242820] p-1">
+
+                    <input type="email" placeholder="Your email address" aria-label="Your email address"
+                        class="h-full min-w-0 flex-1 bg-transparent px-2 text-[10px] text-[#171916] dark:text-[#F8F9F5] outline-none placeholder:text-[#858A7E] dark:placeholder:text-[#969D8F]">
+
+                    <button type="submit" aria-label="Subscribe"
+                        class="grid h-[28px] w-[28px] shrink-0 place-items-center rounded-[3px] bg-[#B8F15A] text-[14px] text-[#171916] transition-colors hover:bg-[#A9E84B]">
+                        <i class="fi fi-rr-arrow-right"></i>
+                    </button>
+
+                </form>
+
+                <p class="mt-3 text-[8px] leading-[1.7] text-[#858A7E] dark:text-[#969D8F]">
+                    By subscribing, you agree to our Privacy Policy.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="mt-12 grid grid-cols-1 gap-4 border-t border-[#DDE0D7] dark:border-[#34382F] pt-5 text-[9px] text-[#858A7E] dark:text-[#969D8F] sm:grid-cols-3 sm:items-center">
+
+            <p>
+                © 2026 NOVA Studio. All rights reserved.
+            </p>
+
+            <p class="uppercase tracking-[0.15em] sm:text-center">
+                Designed with intention.
+            </p>
+
+            <div class="flex items-center gap-5 sm:justify-end">
+                <a href="#privacy" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">
+                    Privacy Policy
+                </a>
+
+                <a href="#terms" class="transition-colors hover:text-[#171916] dark:hover:text-[#F8F9F5]">
+                    Terms of Service
+                </a>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="./script.js" defer></script>
 </body>
 </html>
