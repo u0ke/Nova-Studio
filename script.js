@@ -17,7 +17,7 @@ function saveTheme(theme) {
     try {
         localStorage.setItem("nova-theme", theme);
     } catch {
-        // Theme still works for this page session.
+        // Theme still works for this session.
     }
 }
 
@@ -26,35 +26,37 @@ function setTheme(theme) {
 
     document.documentElement.classList.toggle("dark", isDark);
 
-    themeIcon.className = isDark
-        ? "fi fi-rr-sun"
-        : "fi fi-rr-moon";
+    if (themeIcon) {
+        themeIcon.className = isDark
+            ? "fi fi-rr-sun"
+            : "fi fi-rr-moon";
+    }
 
-    themeToggle.setAttribute(
-        "aria-label",
-        isDark ? "Switch to light mode" : "Switch to dark mode"
-    );
+    if (themeToggle) {
+        themeToggle.setAttribute(
+            "aria-label",
+            isDark ? "Switch to light mode" : "Switch to dark mode"
+        );
 
-    themeToggle.setAttribute(
-        "aria-pressed",
-        String(isDark)
-    );
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+    }
 
-    themeColor.setAttribute(
-        "content",
-        isDark ? "#171916" : "#F8F9F5"
-    );
+    if (themeColor) {
+        themeColor.setAttribute(
+            "content",
+            isDark ? "#171916" : "#F8F9F5"
+        );
+    }
 
     saveTheme(theme);
 }
 
 // Restore saved theme
 const savedTheme = getSavedTheme();
-
 setTheme(savedTheme === "dark" ? "dark" : "light");
 
-// Toggle theme
-themeToggle.addEventListener("click", () => {
+// Theme toggle
+themeToggle?.addEventListener("click", () => {
     const isDark = document.documentElement.classList.contains("dark");
 
     setTheme(isDark ? "light" : "dark");
@@ -63,6 +65,8 @@ themeToggle.addEventListener("click", () => {
 // Close mobile menu after selecting a link
 document.querySelectorAll("header details nav a").forEach(link => {
     link.addEventListener("click", () => {
-        mobileMenu.open = false;
+        if (mobileMenu) {
+            mobileMenu.open = false;
+        }
     });
 });

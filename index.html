@@ -1,27 +1,39 @@
 
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#F8F9F5">
-<title>NOVA — Everyday Essentials</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#F8F9F5">
+    <title>NOVA — Everyday Essentials</title>
 
-<!-- Tailwind -->
-<script>
-tailwind.config = {
-    darkMode: "class"
-};
-</script>
-<script src="https://cdn.tailwindcss.com"></script>
+    <!-- Restore theme before rendering -->
+    <script>
+        try {
+            const savedTheme = localStorage.getItem("nova-theme");
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+            if (savedTheme === "dark") {
+                document.documentElement.classList.add("dark");
+            }
+        } catch (error) {
+            // Use light mode if storage is unavailable.
+        }
+    </script>
 
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class"
+        };
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
 </head>
 
 <body class="bg-[#F8F9F5] dark:bg-[#171916] font-['Manrope',sans-serif] text-[#171916] dark:text-[#F8F9F5] antialiased transition-colors duration-300 scroll-smooth [&_i]:inline-flex [&_i]:items-center [&_i]:justify-center [&_i]:leading-none">
