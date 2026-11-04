@@ -1,35 +1,717 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOVA.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-      @import "tailwindcss";
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVA Studio — Dark Edition</title>
 
-      @theme {
-        --font-sans: 'Space Grotesk', sans-serif;
-        --color-nova-dark: #0a0a0a;
-        --color-nova-surface: #141414;
-        --color-nova-border: #262626;
-        --color-nova-lime: #c6f133;
-        --color-nova-muted: #888888;
-      }
+  <script src="https://cdn.tailwindcss.com"></script>
 
-      body {
-        font-family: var(--font-sans);
-        background-color: var(--color-nova-dark);
-        color: #ffffff;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['DM Sans', 'sans-serif']
+          },
+          colors: {
+            lime: '#B9F451',
+            dark: '#090909',
+            surface: '#111111',
+            muted: '#858585'
+          }
+        }
       }
-    </style>
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #090909;
+      color: #f5f5f5;
+    }
+
+    .product-image {
+      transition: transform .5s ease;
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.045);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,.7),
+        transparent 65%
+      );
+    }
+
+    ::selection {
+      background: #B9F451;
+      color: #090909;
+    }
+  </style>
 </head>
-<body>
-    <header>
 
-    </header>
+<body class="bg-dark text-white">
+
+  <!-- NAVBAR -->
+  <header class="border-b border-white/[0.07]">
+
+    <nav class="max-w-[1440px] mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
+
+      <a href="#" class="text-2xl font-bold tracking-tighter">
+        NOVA<span class="text-lime">.</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-9 text-xs text-gray-500">
+        <a href="#shop" class="text-white hover:text-lime transition">Shop</a>
+        <a href="#collections" class="hover:text-white transition">Collections</a>
+        <a href="#about" class="hover:text-white transition">About</a>
+        <a href="#journal" class="hover:text-white transition">Journal</a>
+      </div>
+
+      <div class="flex items-center gap-5">
+
+        <button class="hidden sm:block text-xs text-gray-500">
+          USD $⌄
+        </button>
+
+        <button class="bg-lime text-black px-5 py-2 rounded-full text-xs font-semibold hover:bg-lime-400 transition">
+          ▣ &nbsp; Cart (0)
+        </button>
+
+        <button class="md:hidden text-xl">☰</button>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <!-- HERO -->
+  <section class="max-w-[1440px] mx-auto px-6 md:px-12 pt-10 pb-8">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <!-- HERO TEXT -->
+      <div class="flex flex-col items-start">
+
+        <div class="flex items-center gap-2 text-[9px] tracking-[0.17em] text-gray-500 uppercase mb-6">
+          <span class="bg-lime text-black px-1">✦</span>
+          Less, but better. / Collection 026
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl lg:text-[76px] leading-[0.98] font-medium tracking-[-0.065em] max-w-xl">
+          Elevate<br>
+          your daily<br>
+          carry.
+        </h1>
+
+        <p class="text-sm text-gray-400 leading-6 mt-6 max-w-sm">
+          Considered essentials for a life in motion.
+          Designed with purpose. Made to go everywhere.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mt-6">
+
+          <a href="#shop"
+             class="bg-lime text-black px-5 py-3 text-xs font-semibold hover:bg-lime-400 transition">
+            Shop the collection &nbsp; ↗
+          </a>
+
+          <a href="#about"
+             class="border border-white/10 px-5 py-3 text-xs font-semibold hover:bg-white hover:text-black transition">
+            Explore our story
+          </a>
+
+        </div>
+
+        <p class="text-[10px] text-gray-500 mt-5">
+          ♧ &nbsp; Complimentary shipping on orders $150+
+        </p>
+
+      </div>
+
+
+      <!-- FEATURED PRODUCT -->
+      <div class="relative h-[390px] sm:h-[440px] rounded-md overflow-hidden bg-surface border border-white/[0.08]">
+
+        <img
+          src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200"
+          alt="Black everyday travel bag"
+          class="w-full h-full object-cover opacity-80"
+        >
+
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <div class="absolute top-5 left-5 text-[9px] tracking-[0.15em] text-gray-300 uppercase">
+          Objects for the everyday
+        </div>
+
+        <span class="absolute top-4 right-5 border border-lime/30 text-lime px-3 py-1 rounded-full text-[9px]">
+          ✦ New season
+        </span>
+
+        <div class="absolute bottom-4 left-4 right-4 bg-[#171717]/95 border border-white/[0.07] rounded-sm p-3 flex items-center justify-between">
+
+          <div>
+            <h3 class="text-sm font-medium">The Transit Tote</h3>
+            <p class="text-[10px] text-gray-500 mt-1">
+              Recycled nylon / Onyx — $128
+            </p>
+          </div>
+
+          <a href="#shop" class="w-8 h-8 bg-lime text-black rounded-full flex items-center justify-center text-lg hover:bg-lime-400">
+            ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 mt-8 pt-4 flex justify-between text-[9px] tracking-widest text-gray-500 uppercase">
+      <span>Independent design. Everyday utility.</span>
+      <a href="#collections">Discover the edit &nbsp; <span class="text-lime">↓</span></a>
+    </div>
+
+  </section>
+
+
+  <!-- COLLECTION -->
+  <section id="shop" class="max-w-[1440px] mx-auto px-6 md:px-12 pt-14 pb-20">
+
+    <div class="flex flex-col md:flex-row justify-between md:items-end gap-5 mb-7">
+
+      <div>
+
+        <div class="flex items-center gap-2 text-[9px] tracking-[0.17em] text-gray-500 uppercase mb-4">
+          <span class="bg-lime text-black px-1">✦</span>
+          The considered collection
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl font-medium tracking-tight">
+          Everyday, elevated.
+        </h2>
+
+      </div>
+
+      <p class="text-xs text-gray-500 leading-5 max-w-[220px]">
+        Fewer things. Better things. A curated edit of essentials that earn their place.
+      </p>
+
+    </div>
+
+
+    <!-- CATEGORY FILTERS -->
+    <div id="collections" class="flex flex-wrap items-center gap-2 border-b border-white/10 pb-5 mb-6">
+
+      <button class="bg-lime text-black rounded-full px-4 py-2 text-[10px] font-semibold">
+        All Products
+      </button>
+
+      <button class="border border-white/10 rounded-full px-4 py-2 text-[10px] text-gray-400 hover:text-white hover:border-white/30 transition">
+        Apparel
+      </button>
+
+      <button class="border border-white/10 rounded-full px-4 py-2 text-[10px] text-gray-400 hover:text-white hover:border-white/30 transition">
+        Accessories
+      </button>
+
+      <button class="border border-white/10 rounded-full px-4 py-2 text-[10px] text-gray-400 hover:text-white hover:border-white/30 transition">
+        Limited Edition
+      </button>
+
+      <div class="ml-auto hidden sm:flex items-center gap-5 text-[10px] text-gray-500">
+        <span>6 objects</span>
+        <span>Featured &nbsp;⌄</span>
+      </div>
+
+    </div>
+
+
+    <!-- PRODUCT GRID -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-9">
+
+
+      <!-- PRODUCT 1 -->
+      <article class="product-card group">
+
+        <div class="relative aspect-[1.1/1] overflow-hidden rounded-md bg-[#191919]">
+
+          <img
+            src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800"
+            alt="The Transit Tote"
+            class="product-image w-full h-full object-cover"
+          >
+
+          <span class="absolute top-3 left-3 bg-black/80 px-2 py-1 text-[9px] uppercase tracking-wide">
+            Bestseller
+          </span>
+
+          <button class="absolute top-3 right-3 bg-black/70 border border-white/10 rounded-full w-8 h-8 text-sm">
+            ◎
+          </button>
+
+        </div>
+
+        <div class="pt-3">
+
+          <div class="flex justify-between text-[9px] tracking-widest text-gray-500 uppercase">
+            <span>Accessories</span>
+            <span class="text-gray-400">●</span>
+          </div>
+
+          <div class="flex justify-between items-center mt-1">
+            <h3 class="text-sm font-medium">The Transit Tote</h3>
+            <span class="text-xs">$128</span>
+          </div>
+
+          <p class="text-[10px] text-gray-500 mt-2">
+            Onyx / Recycled nylon
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 2 -->
+      <article class="product-card group">
+
+        <div class="relative aspect-[1.1/1] overflow-hidden rounded-md bg-[#191919]">
+
+          <img
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800"
+            alt="The Essential Tee"
+            class="product-image w-full h-full object-cover"
+          >
+
+          <button class="absolute top-3 right-3 bg-black/70 border border-white/10 rounded-full w-8 h-8 text-sm">
+            ◎
+          </button>
+
+        </div>
+
+        <div class="pt-3">
+
+          <div class="flex justify-between text-[9px] tracking-widest text-gray-500 uppercase">
+            <span>Apparel</span>
+            <span>●</span>
+          </div>
+
+          <div class="flex justify-between items-center mt-1">
+            <h3 class="text-sm font-medium">The Essential Tee</h3>
+            <span class="text-xs">$58</span>
+          </div>
+
+          <p class="text-[10px] text-gray-500 mt-2">
+            Chalk / Organic cotton
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 3 -->
+      <article class="product-card group">
+
+        <div class="relative aspect-[1.1/1] overflow-hidden rounded-md bg-[#191919]">
+
+          <img
+            src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800"
+            alt="The Form Sling"
+            class="product-image w-full h-full object-cover"
+          >
+
+          <span class="absolute top-3 left-3 bg-lime text-black px-2 py-1 text-[9px] uppercase">
+            New
+          </span>
+
+          <button class="absolute top-3 right-3 bg-black/70 border border-white/10 rounded-full w-8 h-8 text-sm">
+            ◎
+          </button>
+
+        </div>
+
+        <div class="pt-3">
+
+          <div class="flex justify-between text-[9px] tracking-widest text-gray-500 uppercase">
+            <span>Accessories</span>
+            <span class="text-gray-400">●</span>
+          </div>
+
+          <div class="flex justify-between items-center mt-1">
+            <h3 class="text-sm font-medium">The Form Sling</h3>
+            <span class="text-xs">$86</span>
+          </div>
+
+          <p class="text-[10px] text-gray-500 mt-2">
+            Moss / Recycled nylon
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 4 -->
+      <article class="product-card group">
+
+        <div class="relative aspect-[1.1/1] overflow-hidden rounded-md bg-[#191919]">
+
+          <img
+            src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800"
+            alt="The Studio Cap"
+            class="product-image w-full h-full object-cover"
+          >
+
+          <button class="absolute top-3 right-3 bg-black/70 border border-white/10 rounded-full w-8 h-8 text-sm">
+            ◎
+          </button>
+
+        </div>
+
+        <div class="pt-3">
+
+          <div class="flex justify-between text-[9px] tracking-widest text-gray-500 uppercase">
+            <span>Accessories</span>
+            <span>●</span>
+          </div>
+
+          <div class="flex justify-between items-center mt-1">
+            <h3 class="text-sm font-medium">The Studio Cap</h3>
+            <span class="text-xs">$42</span>
+          </div>
+
+          <p class="text-[10px] text-gray-500 mt-2">
+            Onyx / Cotton twill
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 5 -->
+      <article class="product-card group">
+
+        <div class="relative aspect-[1.1/1] overflow-hidden rounded-md bg-[#191919]">
+
+          <img
+            src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800"
+            alt="The Heavyweight Hoodie"
+            class="product-image w-full h-full object-cover"
+          >
+
+          <button class="absolute top-3 right-3 bg-black/70 border border-white/10 rounded-full w-8 h-8 text-sm">
+            ◎
+          </button>
+
+        </div>
+
+        <div class="pt-3">
+
+          <div class="flex justify-between text-[9px] tracking-widest text-gray-500 uppercase">
+            <span>Apparel</span>
+            <span>●</span>
+          </div>
+
+          <div class="flex justify-between items-center mt-1">
+            <h3 class="text-sm font-medium">The Heavyweight Hoodie</h3>
+            <span class="text-xs">$148</span>
+          </div>
+
+          <p class="text-[10px] text-gray-500 mt-2">
+            Graphite / Organic cotton
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 6 -->
+      <article class="product-card group">
+
+        <div class="relative aspect-[1.1/1] overflow-hidden rounded-md bg-[#191919]">
+
+          <img
+            src="https://images.unsplash.com/photo-1622560480654-d96214fdc887?w=800"
+            alt="The Everyday Kit"
+            class="product-image w-full h-full object-cover"
+          >
+
+          <span class="absolute top-3 left-3 bg-black/80 px-2 py-1 text-[9px] uppercase">
+            Limited / 100
+          </span>
+
+          <button class="absolute top-3 right-3 bg-black/70 border border-white/10 rounded-full w-8 h-8 text-sm">
+            ◎
+          </button>
+
+        </div>
+
+        <div class="pt-3">
+
+          <div class="flex justify-between text-[9px] tracking-widest text-gray-500 uppercase">
+            <span>Limited Edition</span>
+            <span>●</span>
+          </div>
+
+          <div class="flex justify-between items-center mt-1">
+            <h3 class="text-sm font-medium">The Everyday Kit</h3>
+            <span class="text-xs">$168</span>
+          </div>
+
+          <p class="text-[10px] text-gray-500 mt-2">
+            Moss / 100 sets worldwide
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <p class="text-center text-[10px] text-gray-500 mt-10">
+      Thoughtfully designed. Intentionally limited.
+      <span class="text-lime">✦</span>
+    </p>
+
+  </section>
+
+
+  <!-- BRAND STORY -->
+  <section id="about" class="grid grid-cols-1 md:grid-cols-2 bg-[#111111] border-y border-white/[0.06]">
+
+    <div class="relative min-h-[350px] md:min-h-[480px] overflow-hidden">
+
+      <img
+        src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200"
+        alt="Bag craftsmanship detail"
+        class="absolute inset-0 w-full h-full object-cover grayscale"
+      >
+
+      <div class="absolute inset-0 bg-black/20"></div>
+
+      <p class="absolute bottom-6 left-6 text-white text-[9px] tracking-widest uppercase">
+        <span class="text-lime">01 /</span>
+        A study in material & form
+      </p>
+
+    </div>
+
+
+    <div class="flex flex-col justify-center px-8 md:px-12 lg:px-20 py-16">
+
+      <div class="flex items-center gap-2 text-[9px] tracking-[0.17em] text-gray-500 uppercase mb-5">
+        <span class="bg-lime text-black px-1">✦</span>
+        Purpose in every detail
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.05em] leading-tight">
+        Nothing extra.<br>
+        Nothing ordinary.
+      </h2>
+
+      <p class="text-xs text-gray-400 leading-6 mt-5 max-w-md">
+        From the first sketch to the final stitch, we obsess over what matters.
+        Responsible materials. Honest construction. Objects that look better
+        and work harder, for longer.
+      </p>
+
+      <a href="#journal"
+         class="text-xs font-semibold mt-6 border-b border-white/40 pb-2 w-fit hover:border-lime transition">
+        Inside the studio &nbsp; <span class="text-lime">↗</span>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- STATS -->
+  <section class="bg-[#111111] border-b border-white/[0.06]">
+
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-8 grid grid-cols-1 sm:grid-cols-3 gap-7">
+
+      <div class="flex items-center gap-4">
+
+        <span class="text-3xl md:text-4xl font-light tracking-tight text-lime">
+          100%
+        </span>
+
+        <div>
+          <h4 class="text-[11px] font-semibold">Considered materials</h4>
+          <p class="text-[9px] text-gray-500 mt-1">
+            Recycled nylon. Organic cotton. No shortcuts.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="flex items-center gap-4 sm:border-l sm:border-r border-white/[0.08] sm:px-6">
+
+        <span class="text-3xl md:text-4xl font-light tracking-tight text-lime">
+          02
+        </span>
+
+        <div>
+          <h4 class="text-[11px] font-semibold">Collections per year</h4>
+          <p class="text-[9px] text-gray-500 mt-1">
+            Slower releases. More intention in every piece.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="flex items-center gap-4">
+
+        <span class="text-3xl md:text-4xl font-light tracking-tight text-lime">
+          365
+        </span>
+
+        <div>
+          <h4 class="text-[11px] font-semibold">Days of possibility</h4>
+          <p class="text-[9px] text-gray-500 mt-1">
+            Made for the everyday. Built for the long run.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer id="journal" class="bg-dark">
+
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-14">
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+
+        <!-- BRAND -->
+        <div>
+
+          <a href="#" class="text-2xl font-bold tracking-tighter">
+            NOVA<span class="text-lime">.</span>
+          </a>
+
+          <p class="text-xs text-gray-400 leading-6 mt-5 max-w-[190px]">
+            Independent design studio. Considered objects for the way you move through the world.
+          </p>
+
+          <div class="flex gap-4 mt-5 text-[10px] text-gray-300">
+            <a href="#" class="hover:text-lime">Instagram ↗</a>
+            <a href="#" class="hover:text-lime">Pinterest ↗</a>
+          </div>
+
+        </div>
+
+
+        <!-- EXPLORE -->
+        <div>
+
+          <h4 class="text-[11px] font-semibold mb-5">Explore</h4>
+
+          <ul class="space-y-3 text-[10px] text-gray-500">
+            <li><a href="#shop" class="hover:text-white">Shop</a></li>
+            <li><a href="#collections" class="hover:text-white">Collections</a></li>
+            <li><a href="#about" class="hover:text-white">About</a></li>
+            <li><a href="#journal" class="hover:text-white">Journal</a></li>
+          </ul>
+
+        </div>
+
+
+        <!-- HELP -->
+        <div>
+
+          <h4 class="text-[11px] font-semibold mb-5">Here to help</h4>
+
+          <ul class="space-y-3 text-[10px] text-gray-500">
+            <li><a href="#" class="hover:text-white">Contact</a></li>
+            <li><a href="#" class="hover:text-white">Shipping & returns</a></li>
+            <li><a href="#" class="hover:text-white">Care guide</a></li>
+            <li><a href="#" class="hover:text-white">FAQs</a></li>
+          </ul>
+
+        </div>
+
+
+        <!-- NEWSLETTER -->
+        <div>
+
+          <h3 class="text-base font-medium">Stay in the loop.</h3>
+
+          <p class="text-[10px] text-gray-500 leading-5 mt-3">
+            New objects, studio notes, and early access.
+            Only when we have something worth sharing.
+          </p>
+
+          <form class="flex border border-white/10 mt-5 p-1">
+
+            <input
+              type="email"
+              placeholder="Your email address"
+              class="w-full bg-transparent px-2 text-[10px] text-white outline-none placeholder:text-gray-600"
+            >
+
+            <button
+              type="submit"
+              class="bg-lime text-black w-8 h-7 shrink-0 hover:bg-lime-400">
+              →
+            </button>
+
+          </form>
+
+          <p class="text-[8px] text-gray-600 mt-3">
+            By subscribing, you agree to our Privacy Policy.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- BOTTOM FOOTER -->
+      <div class="border-t border-white/[0.08] mt-14 pt-5 flex flex-col sm:flex-row justify-between gap-4 text-[9px] text-gray-600">
+
+        <span>© 2026 NOVA Studio. All rights reserved.</span>
+
+        <span class="tracking-widest uppercase">
+          Designed with intention.
+        </span>
+
+        <div class="flex gap-5">
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+          <a href="#" class="hover:text-white">Terms of Service</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
 </body>
 </html>
