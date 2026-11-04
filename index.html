@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,219 +11,104 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tailwind Design System -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        nova: {
-                            paper: '#F8F9F5',
-                            ink: '#171916',
-                            muted: '#686D63',
-                            line: '#DDE0D7',
-                            lime: '#B8F15A',
-                            limeDark: '#6D982B',
-                            photo: '#11130F'
-                        }
-                    },
-
-                    fontFamily: {
-                        sans: ['Manrope', 'sans-serif']
-                    },
-
-                    letterSpacing: {
-                        editorial: '0.17em'
-                    },
-
-                    boxShadow: {
-                        subtle: '0 1px 2px rgba(23,25,22,.04)'
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts: Manrope -->
+    <!-- Google Font: Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Flaticon UIcons -->
-    <link rel="stylesheet"
-        href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
 
-    <!-- Custom Styles -->
-    <style>
-        :root {
-            color-scheme: light;
-
-            --page: #F8F9F5;
-            --ink: #171916;
-            --muted: #686D63;
-            --line: #DDE0D7;
-            --lime: #B8F15A;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: var(--page);
-            color: var(--ink);
-            font-family: 'Manrope', sans-serif;
-        }
-
-        button,
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .hero-title {
-            font-size: clamp(4.25rem, 7.15vw, 7.25rem);
-            line-height: .99;
-            letter-spacing: -.078em;
-            font-weight: 650;
-        }
-
-        .tracking-label {
-            letter-spacing: .17em;
-        }
-
-        .hero-photo {
-            background-color: #11130F;
-
-            background-image:
-                linear-gradient(180deg,
-                    rgba(0, 0, 0, .06),
-                    rgba(0, 0, 0, .08)),
-                url('./assets/transit-tote-reference.jpg');
-
-            background-size: cover;
-            background-position: center 48%;
-        }
-
-        .icon-button {
-            display: inline-grid;
-            place-items: center;
-        }
-
-        @media (min-width: 1500px) {
-            .hero-title {
-                font-size: 7.25rem;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .hero-title {
-                font-size: clamp(3.7rem, 15vw, 5.6rem);
-                letter-spacing: -.075em;
-            }
-        }
-    </style>
 </head>
 
-<body class="antialiased">
+<body class="bg-[#F8F9F5] font-['Manrope',sans-serif] text-[#171916] antialiased">
 
-    <!-- HEADER -->
-    <header class="border-b border-nova-line">
+    <!-- ================= HEADER ================= -->
+
+    <header class="border-b border-[#DDE0D7]">
 
         <div class="mx-auto flex h-[86px] max-w-[1622px] items-center justify-between px-6 sm:px-10 lg:px-[4.45%]">
 
             <!-- Logo -->
-            <a href="#top" aria-label="NOVA home"
-                class="shrink-0 text-[2rem] font-extrabold leading-none tracking-[-0.09em]">
-                NOVA<span class="text-nova-limeDark">.</span>
+            <a href="#home" class="shrink-0 text-[32px] font-extrabold leading-none tracking-[-0.09em]">
+                NOVA<span class="text-[#6D982B]">.</span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav aria-label="Main navigation"
-                class="hidden items-center gap-10 text-[14px] font-medium text-nova-muted md:flex">
-                <a class="text-nova-ink transition-colors hover:text-nova-limeDark" href="#shop">
+            <!-- Navigation -->
+            <nav class="hidden items-center gap-10 text-[14px] font-medium text-[#686D63] md:flex">
+
+                <a href="#shop" class="text-[#171916] transition-colors hover:text-[#6D982B]">
                     Shop
                 </a>
 
-                <a class="transition-colors hover:text-nova-ink" href="#collections">
+                <a href="#collections" class="transition-colors hover:text-[#171916]">
                     Collections
                 </a>
 
-                <a class="transition-colors hover:text-nova-ink" href="#top">
+                <a href="#about" class="transition-colors hover:text-[#171916]">
                     About
                 </a>
 
-                <a class="transition-colors hover:text-nova-ink" href="#top">
+                <a href="#journal" class="transition-colors hover:text-[#171916]">
                     Journal
                 </a>
+
             </nav>
 
             <!-- Header Actions -->
             <div class="flex items-center gap-5 sm:gap-8">
 
-                <!-- Currency -->
-                <button type="button" class="hidden items-center gap-2 text-[13px] font-medium text-nova-muted sm:flex"
-                    aria-label="Select currency">
+                <button class="hidden items-center gap-2 text-[13px] font-medium text-[#686D63] sm:flex">
                     USD $
-
-                    <i class="fi fi-rr-angle-small-down text-[13px]"></i>
+                    <i class="fi fi-rr-angle-small-down"></i>
                 </button>
 
-                <!-- Cart -->
-                <button type="button"
-                    class="flex h-[48px] items-center gap-3 rounded-full bg-nova-lime px-5 text-[14px] font-bold transition-transform hover:-translate-y-0.5"
-                    aria-label="Shopping cart, 0 items">
-                    <i class="fi fi-rr-shopping-bag text-[15px]"></i>
+                <a href="#cart" class="flex h-[48px] items-center gap-3 rounded-full bg-[#B8F15A] px-5 text-[14px] font-bold transition-colors hover:bg-[#A9E84B]">
+                    <i class="fi fi-rr-shopping-bag"></i>
+                    Cart (0)
+                </a>
 
-                    <span>Cart (0)</span>
-                </button>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="icon-button text-xl md:hidden" aria-label="Open navigation"
-                    aria-expanded="false">
+                <a href="#mobile-navigation" class="text-xl md:hidden" aria-label="Open navigation">
                     <i class="fi fi-rr-menu-burger"></i>
-                </button>
+                </a>
 
             </div>
+
         </div>
 
         <!-- Mobile Navigation -->
-        <nav id="mobile-menu" aria-label="Mobile navigation"
-            class="hidden border-t border-nova-line px-6 py-4 md:hidden">
-            <div class="flex flex-col gap-4 text-sm text-nova-muted">
+        <nav id="mobile-navigation" class="border-t border-[#DDE0D7] px-6 py-5 md:hidden">
+
+            <div class="flex flex-col gap-4 text-sm text-[#686D63]">
 
                 <a href="#shop">Shop</a>
                 <a href="#collections">Collections</a>
-                <a href="#top">About</a>
-                <a href="#top">Journal</a>
+                <a href="#about">About</a>
+                <a href="#journal">Journal</a>
 
             </div>
+
         </nav>
 
     </header>
 
 
-    <!-- MAIN CONTENT -->
-    <main id="top" class="mx-auto max-w-[1622px] px-6 pb-5 pt-12 sm:px-10 sm:pt-14 lg:px-[4.45%] lg:pt-[64px]">
+    <!-- ================= MAIN ================= -->
 
-        <!-- HERO SECTION -->
+    <main id="home" class="mx-auto max-w-[1622px] px-6 pb-8 pt-12 sm:px-10 sm:pt-14 lg:px-[4.45%] lg:pt-[64px]">
+
+
+        <!-- ================= HERO SECTION ================= -->
+
         <section id="shop" class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr] lg:gap-[5.1%]">
 
-            <!-- LEFT CONTENT -->
+            <!-- Hero Left -->
             <div class="flex flex-col items-start">
 
                 <!-- Collection Label -->
-                <p
-                    class="mb-8 flex items-center gap-3 text-[12px] font-semibold uppercase tracking-editorial text-nova-muted sm:mb-9">
+                <p class="mb-8 flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.17em] text-[#686D63] sm:mb-9">
 
-                    <span
-                        class="grid h-[16px] w-[16px] place-items-center rounded-[4px] bg-[#08C83D] text-[11px] text-white">
+                    <span class="grid h-4 w-4 place-items-center rounded-[4px] bg-[#08C83D] text-[10px] text-white">
                         <i class="fi fi-rr-asterisk"></i>
                     </span>
 
@@ -231,30 +116,24 @@
 
                 </p>
 
-
                 <!-- Main Heading -->
-                <h1 class="hero-title max-w-[650px]">
+                <h1 class="max-w-[650px] text-[clamp(4.25rem,7.15vw,7.25rem)] font-semibold leading-[0.99] tracking-[-0.078em]">
                     Elevate<br>
                     your daily<br>
                     carry.
                 </h1>
 
-
                 <!-- Description -->
-                <p
-                    class="mt-8 max-w-[470px] text-[16px] font-medium leading-[1.85] text-nova-muted sm:mt-9 sm:text-[17px]">
+                <p class="mt-8 max-w-[470px] text-[16px] font-medium leading-[1.85] text-[#686D63] sm:mt-9 sm:text-[17px]">
                     Considered essentials for a life in motion. Designed
                     <br class="hidden xl:block">
                     with purpose. Made to go everywhere.
                 </p>
 
-
                 <!-- Buttons -->
                 <div class="mt-8 flex w-full flex-wrap gap-3 sm:mt-9 sm:w-auto sm:gap-[13px]">
 
-                    <!-- Primary Button -->
-                    <a href="#collections"
-                        class="flex min-h-[60px] min-w-[220px] flex-1 items-center justify-between gap-8 rounded-[4px] bg-nova-lime px-6 text-[14px] font-bold transition-colors hover:bg-[#a9e84b] sm:min-w-[252px] sm:flex-none">
+                    <a href="#collections" class="flex min-h-[60px] min-w-[220px] flex-1 items-center justify-between gap-8 rounded-[4px] bg-[#B8F15A] px-6 text-[14px] font-bold transition-colors hover:bg-[#A9E84B] sm:min-w-[252px] sm:flex-none">
 
                         Shop the collection
 
@@ -262,10 +141,7 @@
 
                     </a>
 
-
-                    <!-- Secondary Button -->
-                    <a href="#top"
-                        class="flex min-h-[60px] items-center justify-center rounded-[4px] border border-nova-line px-6 text-[14px] font-bold transition-colors hover:border-nova-ink sm:min-w-[184px]">
+                    <a href="#about" class="flex min-h-[60px] items-center justify-center rounded-[4px] border border-[#DDE0D7] px-6 text-[14px] font-bold transition-colors hover:border-[#171916] sm:min-w-[184px]">
 
                         Explore our story
 
@@ -273,8 +149,7 @@
 
                 </div>
 
-
-                <!-- Shipping Information -->
+                <!-- Shipping -->
                 <p class="mt-8 flex items-center gap-3 text-[12px] font-medium text-[#777D71]">
 
                     <i class="fi fi-rr-truck-side text-[15px]"></i>
@@ -286,26 +161,25 @@
             </div>
 
 
-            <!-- RIGHT PRODUCT IMAGE -->
-            <div id="collections"
-                class="hero-photo relative min-h-[470px] overflow-hidden rounded-[9px] sm:min-h-[560px] lg:aspect-[1.12/1] lg:min-h-0">
-                <img src="./assets/e491b49ecf80c5f272698bd87e9b0bd2a5f8ac47.jpg" alt="The Transit Tote"
-                    class="absolute inset-0 h-full w-full object-cover object-center" />
+            <!-- Hero Right Image -->
+            <div class="relative min-h-[470px] overflow-hidden rounded-[9px] bg-[#11130F] sm:min-h-[560px] lg:aspect-[1.12/1] lg:min-h-0">
+
+                <img
+                    src="./assets/d51484bd940f6e8d7073757a840d2eb393d324d1.jpg"
+                    alt="NOVA everyday essentials"
+                    class="absolute inset-0 h-full w-full object-cover object-center"
+                >
 
                 <!-- Image Top Information -->
-                <div
-                    class="absolute left-7 right-7 top-7 flex items-center justify-between gap-3 sm:left-7 sm:right-7 sm:top-7">
+                <div class="absolute left-7 right-7 top-7 flex items-center justify-between gap-3">
 
-                    <span class="text-[10px] font-medium uppercase tracking-[.19em] text-white/80 sm:text-[11px]">
+                    <span class="text-[10px] font-medium uppercase tracking-[0.19em] text-white/80 sm:text-[11px]">
                         Objects for the everyday
                     </span>
 
+                    <span class="flex items-center gap-2 rounded-full bg-[#B8F15A] px-4 py-[9px] text-[10px] font-semibold uppercase text-[#171916]">
 
-                    <!-- New Season Badge -->
-                    <span
-                        class="flex items-center gap-2 rounded-full bg-nova-lime px-4 py-[9px] text-[10px] font-semibold uppercase text-nova-ink">
-
-                        <span class="h-[5px] w-[5px] rounded-full bg-nova-ink"></span>
+                        <span class="h-[5px] w-[5px] rounded-full bg-[#171916]"></span>
 
                         New season
 
@@ -313,31 +187,23 @@
 
                 </div>
 
-
                 <!-- Floating Product Card -->
-                <a href="#product" id="product"
-                    class="absolute bottom-7 left-7 right-7 flex min-h-[86px] items-center justify-between gap-4 rounded-[4px] border border-[#dfe1d9] bg-nova-paper px-4 py-3 shadow-subtle transition-transform hover:-translate-y-1 sm:bottom-7 sm:left-7 sm:right-7 sm:px-[18px]">
+                <a href="#product-1" class="absolute bottom-7 left-7 right-7 flex min-h-[86px] items-center justify-between gap-4 rounded-[4px] border border-[#DFE1D9] bg-[#F8F9F5] px-4 py-3 shadow-sm transition-transform hover:-translate-y-1 sm:px-[18px]">
 
-                    <!-- Product Information -->
                     <span class="min-w-0">
 
-                        <span class="block truncate text-[19px] font-medium tracking-[-.025em] sm:text-[22px]">
+                        <span class="block truncate text-[19px] font-medium tracking-[-0.025em] sm:text-[22px]">
                             The Transit Tote
                         </span>
 
-                        <span class="mt-1 block text-[11px] font-medium text-nova-muted sm:text-[12px]">
+                        <span class="mt-1 block text-[11px] font-medium text-[#686D63] sm:text-[12px]">
                             Recycled nylon / Onyx — $128
                         </span>
 
                     </span>
 
-
-                    <!-- Product Arrow -->
-                    <span
-                        class="icon-button h-[40px] w-[40px] shrink-0 rounded-full bg-nova-lime text-[17px] transition-transform hover:rotate-45">
-
+                    <span class="grid h-[40px] w-[40px] shrink-0 place-items-center rounded-full bg-[#B8F15A] text-[17px]">
                         <i class="fi fi-rr-arrow-up-right"></i>
-
                     </span>
 
                 </a>
@@ -347,31 +213,387 @@
         </section>
 
 
-        <!-- FOOTER -->
-        <footer
-            class="mt-10 flex flex-col gap-5 border-t border-nova-line pt-6 sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:pt-6">
+        <!-- ================= COLLECTION SECTION ================= -->
 
-            <!-- Footer Left -->
-            <p class="text-[10px] font-semibold uppercase tracking-[.17em] text-[#858A7E]">
-                Independent design. Everyday utility.
+        <section id="collections" class="mt-24 sm:mt-28 lg:mt-32">
+
+            <!-- Collection Heading -->
+            <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+
+                <div>
+
+                    <p class="mb-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#686D63]">
+
+                        <span class="grid h-[13px] w-[13px] place-items-center rounded-[3px] bg-[#08C83D] text-[9px] text-white">
+                            <i class="fi fi-rr-asterisk"></i>
+                        </span>
+
+                        The considered collection
+
+                    </p>
+
+                    <h2 class="text-[32px] font-medium leading-tight tracking-[-0.055em] sm:text-[38px] lg:text-[42px]">
+                        Everyday, elevated.
+                    </h2>
+
+                </div>
+
+                <p class="max-w-[260px] text-[12px] leading-[1.8] text-[#686D63]">
+                    Fewer things. Better things. A curated edit of essentials that earn their place.
+                </p>
+
+            </div>
+
+
+            <!-- Filters -->
+            <div class="mt-7 flex flex-col gap-5 border-b border-[#DDE0D7] pb-5 sm:flex-row sm:items-center sm:justify-between">
+
+                <div class="flex flex-wrap items-center gap-2">
+
+                    <a href="#all-products" class="rounded-full border border-[#B8F15A] bg-[#B8F15A] px-[17px] py-[8px] text-[10px] font-semibold text-[#171916]">
+                        All Products
+                    </a>
+
+                    <a href="#apparel" class="rounded-full border border-[#DDE0D7] px-[17px] py-[8px] text-[10px] font-medium text-[#686D63] transition-colors hover:border-[#171916] hover:text-[#171916]">
+                        Apparel
+                    </a>
+
+                    <a href="#accessories" class="rounded-full border border-[#DDE0D7] px-[17px] py-[8px] text-[10px] font-medium text-[#686D63] transition-colors hover:border-[#171916] hover:text-[#171916]">
+                        Accessories
+                    </a>
+
+                    <a href="#limited-edition" class="rounded-full border border-[#DDE0D7] px-[17px] py-[8px] text-[10px] font-medium text-[#686D63] transition-colors hover:border-[#171916] hover:text-[#171916]">
+                        Limited Edition
+                    </a>
+
+                </div>
+
+
+                <!-- Product Count and Sort -->
+                <div class="flex items-center gap-5 text-[10px] text-[#858A7E]">
+
+                    <span>6 objects</span>
+
+                    <span class="flex cursor-pointer items-center gap-2">
+                        Featured
+                        <i class="fi fi-rr-angle-small-down"></i>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PRODUCT GRID ================= -->
+
+            <div id="all-products" class="mt-6 grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-7">
+
+
+                <!-- PRODUCT 1: TRANSIT TOTE -->
+
+                <article id="product-1" class="group">
+
+                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252622]">
+
+                        <img
+                            src="./assets/7b1621def034d00aa096f78e666f1aebde00871e.jpg"
+                            alt="The Transit Tote"
+                            loading="lazy"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+
+                        <span class="absolute left-3 top-3 rounded-[2px] bg-[#F8F9F5] px-2 py-[5px] text-[9px] uppercase tracking-wider">
+                            Bestseller
+                        </span>
+
+                        <a href="#product-1" aria-label="View Transit Tote" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
+                            <i class="fi fi-rr-eye"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="mt-3 flex items-center justify-between">
+
+                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">
+                            Accessories
+                        </span>
+
+                        <span class="h-[6px] w-[6px] rounded-full bg-[#383A32]"></span>
+
+                    </div>
+
+                    <div class="mt-1 flex items-center justify-between gap-3">
+
+                        <h3 class="text-[14px] font-medium">
+                            The Transit Tote
+                        </h3>
+
+                        <span class="text-[12px] font-medium">$128</span>
+
+                    </div>
+
+                    <p class="mt-2 text-[10px] text-[#686D63]">
+                        Onyx / Recycled nylon
+                    </p>
+
+                </article>
+
+
+                <!-- PRODUCT 2: ESSENTIAL TEE -->
+
+                <article id="apparel" class="group">
+
+                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
+
+                        <img
+                            src="./assets/7e19c7515d988d350bdb2f8b8e3314114d9fc1bd.jpg"
+                            alt="The Essential Tee"
+                            loading="lazy"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+
+                        <a href="#apparel" aria-label="View Essential Tee" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
+                            <i class="fi fi-rr-eye"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="mt-3 flex items-center justify-between">
+
+                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">
+                            Apparel
+                        </span>
+
+                        <span class="h-[6px] w-[6px] rounded-full bg-[#D8D6C8]"></span>
+
+                    </div>
+
+                    <div class="mt-1 flex items-center justify-between gap-3">
+
+                        <h3 class="text-[14px] font-medium">
+                            The Essential Tee
+                        </h3>
+
+                        <span class="text-[12px] font-medium">$58</span>
+
+                    </div>
+
+                    <p class="mt-2 text-[10px] text-[#686D63]">
+                        Chalk / Organic cotton
+                    </p>
+
+                </article>
+
+
+                <!-- PRODUCT 3: FORM SLING -->
+
+                <article id="accessories" class="group">
+
+                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
+
+                        <img
+                            src="./assets/26bcdc5249b37c03d1f23d6a1cad183f112a9d0a.jpg"
+                            alt="The Form Sling"
+                            loading="lazy"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+
+                        <span class="absolute left-3 top-3 rounded-[2px] bg-[#B8F15A] px-2 py-[5px] text-[9px] uppercase">
+                            New
+                        </span>
+
+                        <a href="#accessories" aria-label="View Form Sling" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
+                            <i class="fi fi-rr-eye"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="mt-3 flex items-center justify-between">
+
+                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">
+                            Accessories
+                        </span>
+
+                        <span class="h-[6px] w-[6px] rounded-full bg-[#727A58]"></span>
+
+                    </div>
+
+                    <div class="mt-1 flex items-center justify-between gap-3">
+
+                        <h3 class="text-[14px] font-medium">
+                            The Form Sling
+                        </h3>
+
+                        <span class="text-[12px] font-medium">$86</span>
+
+                    </div>
+
+                    <p class="mt-2 text-[10px] text-[#686D63]">
+                        Moss / Recycled nylon
+                    </p>
+
+                </article>
+
+
+                <!-- PRODUCT 4: STUDIO CAP -->
+
+                <article class="group">
+
+                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
+
+                        <img
+                            src="./assets/d51484bd940f6e8d7073757a840d2eb393d324d1.jpg"
+                            alt="The Studio Cap"
+                            loading="lazy"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+
+                        <a href="#product-4" aria-label="View Studio Cap" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
+                            <i class="fi fi-rr-eye"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="mt-3 flex items-center justify-between">
+
+                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">
+                            Accessories
+                        </span>
+
+                        <span class="h-[6px] w-[6px] rounded-full bg-[#383A32]"></span>
+
+                    </div>
+
+                    <div class="mt-1 flex items-center justify-between gap-3">
+
+                        <h3 class="text-[14px] font-medium">
+                            The Studio Cap
+                        </h3>
+
+                        <span class="text-[12px] font-medium">$42</span>
+
+                    </div>
+
+                    <p class="mt-2 text-[10px] text-[#686D63]">
+                        Onyx / Cotton twill
+                    </p>
+
+                </article>
+
+
+                <!-- PRODUCT 5: HEAVYWEIGHT HOODIE -->
+
+                <article class="group">
+
+                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
+
+                        <img
+                            src="./assets/b548ce81fbc69cd36d8ac3af5b638a6db97dfdc3.jpg"
+                            alt="The Heavyweight Hoodie"
+                            loading="lazy"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+
+                        <a href="#product-5" aria-label="View Heavyweight Hoodie" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
+                            <i class="fi fi-rr-eye"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="mt-3 flex items-center justify-between">
+
+                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">
+                            Apparel
+                        </span>
+
+                        <span class="h-[6px] w-[6px] rounded-full bg-[#383A32]"></span>
+
+                    </div>
+
+                    <div class="mt-1 flex items-center justify-between gap-3">
+
+                        <h3 class="text-[14px] font-medium">
+                            The Heavyweight Hoodie
+                        </h3>
+
+                        <span class="text-[12px] font-medium">$148</span>
+
+                    </div>
+
+                    <p class="mt-2 text-[10px] text-[#686D63]">
+                        Graphite / Organic cotton
+                    </p>
+
+                </article>
+
+
+                <!-- PRODUCT 6: EVERYDAY KIT -->
+
+                <article id="limited-edition" class="group">
+
+                    <div class="relative aspect-[1.1/1] overflow-hidden rounded-[5px] bg-[#252522]">
+
+                        <img
+                            src="./assets/c24b69425eb7bf9d405dc3fabe7ea882ed7a801a.jpg"
+                            alt="The Everyday Kit"
+                            loading="lazy"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+
+                        <span class="absolute left-3 top-3 rounded-[2px] bg-[#F8F9F5] px-2 py-[5px] text-[9px] uppercase tracking-wider">
+                            Limited / 100
+                        </span>
+
+                        <a href="#limited-edition" aria-label="View Everyday Kit" class="absolute right-3 top-3 grid h-[35px] w-[35px] place-items-center rounded-full bg-[#F8F9F5] text-[#171916] transition-colors hover:bg-[#B8F15A]">
+                            <i class="fi fi-rr-eye"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="mt-3 flex items-center justify-between">
+
+                        <span class="text-[9px] font-medium uppercase tracking-[0.14em] text-[#858A7E]">
+                            Limited Edition
+                        </span>
+
+                        <span class="h-[6px] w-[6px] rounded-full bg-[#727A58]"></span>
+
+                    </div>
+
+                    <div class="mt-1 flex items-center justify-between gap-3">
+
+                        <h3 class="text-[14px] font-medium">
+                            The Everyday Kit
+                        </h3>
+
+                        <span class="text-[12px] font-medium">$168</span>
+
+                    </div>
+
+                    <p class="mt-2 text-[10px] text-[#686D63]">
+                        Moss / 100 sets worldwide
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- Closing Text -->
+            <p class="mt-16 pb-6 text-center text-[11px] font-medium text-[#858A7E]">
+                Thoughtfully designed. Intentionally limited.
             </p>
 
+        </section>
 
-            <!-- Footer Right -->
-            <a href="#collections"
-                class="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[.16em] text-nova-muted transition-colors hover:text-nova-ink">
 
-                Discover the edit
+        <!-- ABOUT AND JOURNAL SECTIONS RESERVED FOR FUTURE CONTENT -->
 
-                <i class="fi fi-rr-arrow-down text-[14px] text-[#648F2A]"></i>
-
-            </a>
-
-        </footer>
+        <section id="about" class="hidden"></section>
+        <section id="journal" class="hidden"></section>
 
     </main>
 
-
 </body>
-
 </html>
